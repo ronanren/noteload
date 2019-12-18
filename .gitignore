@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 credentials.yml
-notes.csv
+*.csv
