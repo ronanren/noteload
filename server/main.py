@@ -3,19 +3,20 @@ import save
 import credentials
 import check
 
+
+# Get the credentials registered in database
 auth = credentials.getCredentials()
 page = None
 
-# Get the credentials registered in credentials.yml
-if (auth["error"] == None):
-	page = ent.getNotesPage(auth["credentials"])
-else:
-	print(auth["error"])
 
-# Login to ENT and save
-if (page["error"] == None):
-	save.createjson(page["page"])
-else:
-	print(page["error"])
+for user in auth:
+	page = ent.getNotesPage(user)
+	print(user)
 
-check.checker()
+	# Login to ENT and save
+	if (page["error"] == None):
+		save.createcsv(page["page"], user)
+	else:
+		print(page["error"])
+
+check.checker(auth)

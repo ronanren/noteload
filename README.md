@@ -1,9 +1,6 @@
 # noteload
 noteload est une application de consultation des notes présentes sur l'environnement numérique de travail de l'Université de Rennes 1.
 
-# noteload
-noteload est une application de consultation des notes présentes sur l'environnement numérique de travail de l'Université de Rennes 1.
-
 ## Installation
 noteload comprend deux parties :
 - Une partie serveur en Python qui vérifie constamment les notes

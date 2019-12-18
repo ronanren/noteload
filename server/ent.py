@@ -29,8 +29,8 @@ def getNotesPage(credentials):
 
         # Connection to Sesame with login details
         login = {
-            'username': credentials["username"],
-            'password': credentials["password"],
+            'username': credentials[0],
+            'password': credentials[1],
             'execution': token,
             '_eventId': 'submit',
             'geolocation': ''
