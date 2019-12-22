@@ -1,6 +1,6 @@
 # Ce script enregistre les notes en CSV
 # coding: utf-8
-import csv, json, os.path
+import csv, os.path
 
 
 def createcsv(data, user):

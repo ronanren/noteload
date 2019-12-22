@@ -6,6 +6,7 @@ import save
 import credentials
 import collections as ct
 from time import strftime
+import yaml
 
 
 def checker(auth):
@@ -43,6 +44,23 @@ def checker(auth):
 			changes = "\n".join(diff.keys())
 			if (changes != ""):
 				print ("mail send : " + str(changes))
+				import smtplib
+				from email.mime.text import MIMEText
+
+				credential = yaml.load(open('credentials.yml'), Loader=yaml.FullLoader)
+
+				message = MIMEText(changes.replace(",", " "))
+				message['Subject'] = 'Nouvelle note'
+
+				message['From'] = credential['mail']['from']
+				message['To'] = credential['mail']['to']
+
+				server = smtplib.SMTP(credential['mail']['server'])
+				server.starttls()
+				server.login(credential['mail']['from'],credential['mail']['password'])
+				server.send_message(message)
+				server.quit()
+
 				#update new marks
 				page = None
 				page = ent.getNotesPage(user)
