@@ -65,7 +65,7 @@ def checker(auth):
 				page = None
 				page = ent.getNotesPage(user)
 				save.createcsv(page["page"], user)
-		time.sleep(3)
+		time.sleep(300)
 
 	
 
