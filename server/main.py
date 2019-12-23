@@ -11,7 +11,6 @@ page = None
 
 for user in auth:
 	page = ent.getNotesPage(user)
-	print(user)
 
 	# Login to ENT and save
 	if (page["error"] == None):

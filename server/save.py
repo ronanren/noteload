@@ -30,7 +30,7 @@ def createcsv(data, user):
 	credential = yaml.load(open('credentials.yml'), Loader=yaml.FullLoader)
 	 
 	ftp = FTP()
-	ftp.set_debuglevel(2)
+	ftp.set_debuglevel(0)
 	ftp.connect(credential['ftp']['server'], 21) 
 	ftp.login(credential['ftp']['user'],credential['ftp']['password'])
 	ftp.cwd('www/data')

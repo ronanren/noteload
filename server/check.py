@@ -12,8 +12,19 @@ import yaml
 def checker(auth):
 	print("check des notes...")
 	#read last csv file create
+	temps = time.time()
 	while True:
+		if time.time() - temps > 3600:
+			temps = time.time()
+			auth = credentials.getCredentials()
+			for user in auth:
+				page = ent.getNotesPage(user)
+				save.createcsv(page["page"], user)
+			print("update bdd : ")
+			print(auth)
+
 		for user in auth:
+			
 			csvfile = open('data/' + user[1] + '.csv', 'r')
 			csvfile = csvfile.read()
 			csvfile = csvfile.replace("\n\n", "\n")
