@@ -14,7 +14,7 @@ def checker(auth):
 	#read last csv file create
 	while True:
 		for user in auth:
-			csvfile = open('data/' + user[0] + '.csv', 'r')
+			csvfile = open('data/' + user[1] + '.csv', 'r')
 			csvfile = csvfile.read()
 			csvfile = csvfile.replace("\n\n", "\n")
 			csvfile = csvfile.replace('"', "")
@@ -53,7 +53,7 @@ def checker(auth):
 				message['Subject'] = 'Nouvelle note'
 
 				message['From'] = credential['mail']['from']
-				message['To'] = credential['mail']['to']
+				message['To'] = user[2]
 
 				server = smtplib.SMTP(credential['mail']['server'])
 				server.starttls()
@@ -65,6 +65,21 @@ def checker(auth):
 				page = None
 				page = ent.getNotesPage(user)
 				save.createcsv(page["page"], user)
+
+				from ftplib import FTP 
+				import os
+				import fileinput
+
+				credential = yaml.load(open('credentials.yml'), Loader=yaml.FullLoader)
+				 
+				ftp = FTP()
+				ftp.set_debuglevel(2)
+				ftp.connect(credential['ftp']['server'], 21) 
+				ftp.login(credential['ftp']['user'],credential['ftp']['password'])
+				ftp.cwd('www/data')
+				fp = open('data/' + str(user[1]) + '.csv', 'rb')
+				ftp.storbinary('STOR %s' % os.path.basename('data/' + str(user[1]) + '.csv'), fp, 1024)
+				fp.close()
 		time.sleep(300)
 
 	
