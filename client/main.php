@@ -61,7 +61,7 @@
                 while (($line = fgetcsv($f)) !== false) {
                         echo "<tr>";
                         foreach ($line as $cell) {
-                                echo "<td>" . iconv( "Windows-1252", "UTF-8", $cell) . "</td>";
+                                echo "<td>" . $cell . "</td>";
                         }
                         echo "</tr>\n";
                 }
@@ -70,7 +70,7 @@
 
             }
             catch (ErrorException $e) {
-                    echo 'Vos notes seront la prochainement...';
+                    echo 'Vos notes seront afficher prochainement sous maximum 1 heure...';
                 }
              ?>
              <script>
