@@ -14,15 +14,6 @@ def checker(auth):
 	#read last csv file create
 	temps = time.time()
 	while True:
-		if time.time() - temps > 3600:
-			temps = time.time()
-			auth = credentials.getCredentials()
-			for user in auth:
-				page = ent.getNotesPage(user)
-				save.createcsv(page["page"], user)
-			print("update bdd : ")
-			print(auth)
-
 		for user in auth:
 			
 			csvfile = open('data/' + user[1] + '.csv', 'r')
@@ -47,7 +38,7 @@ def checker(auth):
 			data = data + "\n"
 			
 			#comparing
-			print (strftime("%H:%M:%S") + " comparing...")
+			print (strftime("%H:%M:%S") + " comparing for " + str(user[1]))
 			ca = ct.Counter(data.split("\n"))
 			cb = ct.Counter(csvfile.split("\n"))
 
@@ -91,6 +82,16 @@ def checker(auth):
 				fp = open('data/' + str(user[1]) + '.csv', 'rb')
 				ftp.storbinary('STOR %s' % os.path.basename('data/' + str(user[1]) + '.csv'), fp, 1024)
 				fp.close()
+		# Mise a jour des nouveaux utilisateurs de la base de données
+		if time.time() - temps > 3600:
+			temps = time.time()
+			auth = credentials.getCredentials()
+			for user in auth:
+				page = ent.getNotesPage(user)
+				save.createcsv(page["page"], user)
+			print("update bdd : ")
+			print(auth)
+
 		time.sleep(300)
 
 	
