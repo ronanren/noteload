@@ -16,8 +16,7 @@ for user in auth:
 	if (page["error"] == None):
 		save.createcsv(page["page"], user)
 	else:
-		print(page["error"])
-try:
-	check.checker(auth)
-except Exception as e: 
-	print(e)
+		print(page["error"] + " " + str(user[1]))
+
+check.checker(auth)
+
