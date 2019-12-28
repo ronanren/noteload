@@ -1,6 +1,6 @@
 <?php include('server.php') ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -15,7 +15,7 @@
 <body>
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="index.html" class="brand-logo">Logo</a>
+            <a id="logo-container" href="index.html" class="brand-logo">Noteload</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="connection.php">Se connecter</a></li>
                 <li><a href="inscription.php">S'inscrire</a></li>
@@ -39,13 +39,13 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="first_name" type="text" class="validate" name="username" value="<?php echo $username; ?>">
-                            <label for="username">username</label>
+                            <label for="username">Nom d'utilisateur</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="email" type="email" class="validate" name="email" value="<?php echo $email; ?>">
-                            <label for="email">Email</label>
+                            <label for="email">Adresse email</label>
                         </div>
                     </div>
                     <div class="row">
@@ -54,8 +54,9 @@
                             <label for="password">Mot de passe</label>
                         </div>
                     </div>
+                    <input type="hidden" name="g-recaptcha-response" />
                     <div class="row">
-                        <button class="btn waves-effect waves-light col s2 offset-l5 offset-m5 offset-s5 " type="submit" name="reg_user">Submit
+                        <button class="btn waves-effect waves-light col s2 offset-l5 offset-m5 offset-s5 " type="submit" name="reg_user">S'inscrire
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
@@ -90,6 +91,15 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Leyr8oUAAAAAJ5TjX_TpJgOD-xI8BYZwfuMTSF1"></script>
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Leyr8oUAAAAAJ5TjX_TpJgOD-xI8BYZwfuMTSF1', {action: 'login'})
+            .then(function(token) {
+                document.querySelector('input[name=g-recaptcha-response]').setAttribute('value', token);
+            });
+        });
+    </script>
 </body>
 
 </html>

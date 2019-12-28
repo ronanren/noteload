@@ -27,7 +27,7 @@
 <body>
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="main.php" class="brand-logo">Logo</a>
+            <a id="logo-container" href="main.php" class="brand-logo">Noteload</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="profil.php">Profil</a></li>
                 <li><a href="index.html">Se déconnecter</a></li>
@@ -51,7 +51,8 @@
           <label for="disabled">username</label>
         </div>
         <?php 
-            $db = mysqli_connect('HOST', 'USER', 'PASSWORD', 'DATABASE');
+            $config = parse_ini_file('../private/config.ini'); 
+            $db = mysqli_connect($config['host'], $config['username'], $config['password'], $config['dbname']);
             $usercheck = 'SELECT * FROM users WHERE username="'.$_SESSION["username"].'"LIMIT 1';
             $result = mysqli_query($db, $usercheck);
             $user = mysqli_fetch_assoc($result);

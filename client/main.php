@@ -12,7 +12,7 @@
   }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -27,7 +27,7 @@
 <body>
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="main.php" class="brand-logo">Logo</a>
+            <a id="logo-container" href="main.php" class="brand-logo">Noteload</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="profil.php">Profil</a></li>
                 <li><a href="index.html">Se déconnecter</a></li>
@@ -55,7 +55,7 @@
 
         throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
     });
-            echo "<html><body><table class='centered'>\n\n";
+            echo "<table class='centered'>\n\n";
             try {
                 $f = fopen("data/".$_SESSION['username'].".csv", "r");
                 while (($line = fgetcsv($f)) !== false) {

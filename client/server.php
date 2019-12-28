@@ -16,13 +16,20 @@ if (isset($_POST['reg_user'])) {
   $username = mysqli_real_escape_string($db, $_POST['username']);
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $password_1 = mysqli_real_escape_string($db, $_POST['password']);
+  $recaptcha_response = $_POST['g-recaptcha-response'];
+
+  $recaptcha = file_get_contents($config['url'] . '?secret=' . $config['secret_key'] . '&response=' . $recaptcha_response);
+  $recaptcha = json_decode($recaptcha);
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
-  if (empty($username)) { array_push($errors, "Username is required"); }
-  if (empty($email)) { array_push($errors, "Email is required"); }
-  if (empty($password_1)) { array_push($errors, "Password is required"); }
-  
+  if (empty($username)) { array_push($errors, "Le nom d'utilisateur est requis."); }
+  if (empty($email)) { array_push($errors, "L'adresse email est requis."); }
+  if (empty($password_1)) { array_push($errors, "Le mot de passe est requis."); }
+  if ($recaptcha->score < 0.8)
+  {
+    array_push($errors, "Votre score reCAPTCHA est trop faible. Essayez depuis un autre appareil ou réseau. N'utilisez pas de bot ou de systèmes automatisés.");
+  }
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
@@ -32,11 +39,11 @@ if (isset($_POST['reg_user'])) {
   
   if ($user) { // if user exists
     if ($user['username'] === $username) {
-      array_push($errors, "Username already exists");
+      array_push($errors, "Ce nom d'utilisateur existe déjà.");
     }
 
     if ($user['email'] === $email) {
-      array_push($errors, "email already exists");
+      array_push($errors, "Cette adresse email existe déjà.");
     }
   }
 
@@ -48,7 +55,7 @@ if (isset($_POST['reg_user'])) {
   			  VALUES('$username', '$email', '$password')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
-  	$_SESSION['success'] = "You are now logged in";
+  	$_SESSION['success'] = "Vous êtes désormais connecté.";
   	header('location: main.php');
   }
 }
@@ -57,12 +64,20 @@ if (isset($_POST['reg_user'])) {
 if (isset($_POST['login_user'])) {
   $username = mysqli_real_escape_string($db, $_POST['username']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
+  $recaptcha_response = $_POST['g-recaptcha-response'];
+
+  $recaptcha = file_get_contents($config['url'] . '?secret=' . $config['secret_key'] . '&response=' . $recaptcha_response);
+  $recaptcha = json_decode($recaptcha);
 
   if (empty($username)) {
-    array_push($errors, "Username is required");
+    array_push($errors, "Le nom d'utilisateur est requis.");
   }
   if (empty($password)) {
-    array_push($errors, "Password is required");
+    array_push($errors, "Le mot de passe est requis.");
+  }
+  if ($recaptcha->score < 0.7)
+  {
+    array_push($errors, "Votre score reCAPTCHA est trop faible. Essayez depuis un autre appareil ou réseau. N'utilisez pas de bot ou de systèmes automatisés.");
   }
 
   if (count($errors) == 0) {
@@ -70,10 +85,10 @@ if (isset($_POST['login_user'])) {
     $results = mysqli_query($db, $query);
     if (mysqli_num_rows($results) == 1) {
       $_SESSION['username'] = $username;
-      $_SESSION['success'] = "You are now logged in";
+      $_SESSION['success'] = "Vous êtes connecté.";
       header('location: main.php');
     }else {
-      array_push($errors, "Wrong username/password combination");
+      array_push($errors, "Nom d'utilisateur ou mot de passe incorrect.");
     }
   }
 }
