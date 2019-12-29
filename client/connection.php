@@ -17,12 +17,12 @@
         <div class="nav-wrapper container">
             <a id="logo-container" href="index.html" class="brand-logo">Noteload</a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="connection.php">Se connecter</a></li>
-                <li><a href="inscription.php">S'inscrire</a></li>
+                <li><a href="/connection">Se connecter</a></li>
+                <li><a href="/inscription">S'inscrire</a></li>
             </ul>
             <ul id="nav-mobile" class="sidenav">
-                <li><a href="connection.php">Se connecter</a></li>
-                <li><a href="inscription.php">S'inscrire</a></li>
+                <li><a href="/connection">Se connecter</a></li>
+                <li><a href="/inscription">S'inscrire</a></li>
             </ul>
             <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
@@ -33,7 +33,7 @@
                 <h5 class="center">Bienvenue sur notre site</h5>
             </div>
             <div class="row">
-                <form class="col s12" method="post" action="connection.php">
+                <form class="col s12" method="post" action="/connection">
                     <?php include('errors.php'); ?>
                     <div class="row">
                         <div class="input-field col s12">
@@ -68,8 +68,8 @@
                 <div class="col l3 offset-l3 s12">
                     <h5 class="white-text">Navigation</h5>
                     <ul>
-                        <li><a class="white-text" href="connection.php">Se connecter</a></li>
-                        <li><a class="white-text" href="inscription.php">S'inscrire</a></li>
+                        <li><a class="white-text" href="/connection">Se connecter</a></li>
+                        <li><a class="white-text" href="/inscription">S'inscrire</a></li>
                     </ul>
                 </div>
             </div>

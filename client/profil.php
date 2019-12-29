@@ -27,14 +27,14 @@
 <body>
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="main.php" class="brand-logo">Noteload</a>
+            <a id="logo-container" href="/main" class="brand-logo">Noteload</a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="profil.php">Profil</a></li>
-                <li><a href="index.html">Se déconnecter</a></li>
+                <li><a href="/profil">Profil</a></li>
+                <li><a href="/">Se déconnecter</a></li>
             </ul>
             <ul id="nav-mobile" class="sidenav">
-                <li><a href="profil.php">Profil</a></li>
-                <li><a href="index.html">Se déconnecter</a></li>
+                <li><a href="/profil">Profil</a></li>
+                <li><a href="/">Se déconnecter</a></li>
             </ul>
             <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>

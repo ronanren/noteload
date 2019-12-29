@@ -130,3 +130,9 @@ dmypy.json
 
 credentials.yml
 *.csv
+
+# Configuration files
+config.ini
+
+# MacOS
+.DS_Store

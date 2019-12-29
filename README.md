@@ -37,22 +37,3 @@ Vous pouvez désormais exécutez le script :
 python main.py
 ````
 > Sous certains systèmes tels que **MacOS**, il se peut que vous deviez utiliser `python3` au lieu de `python`.
-
-### Installation du client
-
-
-## Fonctionnalités essentielles
-- [x] Connexion automatique à l'ENT
-- [x] Récupération des notes
-- [x] Enregistrement des notes dans un fichier CSV
-- [x] Avertissement d'une modification de notes par comparaison en envoyant un mail
-
-## Fonctionnalités futures
-- [ ] Automatiser la vérification à l'aide d'un serveur
-- [ ] Ajouter la gestion de plusieurs utilisateurs
-- [ ] Réaliser une interface web
-- [ ] Réaliser une base de données
-- [ ] Faire une Progressive Web App
-- [ ] Activation de notifications natives
-- [ ] Accès à l'emploi du temps
-

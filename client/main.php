@@ -2,13 +2,13 @@
   session_start(); 
 
   if (!isset($_SESSION['username'])) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: connection.php');
+    $_SESSION['msg'] = "Vous devez d'abord vous connecté.";
+    header('location: connection');
   }
   if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['username']);
-    header("location: connection.php");
+    header("location: connection");
   }
 ?>
 <!DOCTYPE html>
@@ -27,14 +27,14 @@
 <body>
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="main.php" class="brand-logo">Noteload</a>
+            <a id="logo-container" href="/main" class="brand-logo">Noteload</a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="profil.php">Profil</a></li>
-                <li><a href="index.html">Se déconnecter</a></li>
+                <li><a href="/profil">Profil</a></li>
+                <li><a href="/">Se déconnecter</a></li>
             </ul>
             <ul id="nav-mobile" class="sidenav">
-                <li><a href="profil.php">Profil</a></li>
-                <li><a href="index.html">Se déconnecter</a></li>
+                <li><a href="/profil">Profil</a></li>
+                <li><a href="/">Se déconnecter</a></li>
             </ul>
             <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
@@ -57,7 +57,7 @@
     });
             echo "<table class='centered'>\n\n";
             try {
-                $f = fopen("data/".$_SESSION['username'].".csv", "r");
+                $f = fopen("../data/".$_SESSION['username'].".csv", "r");
                 while (($line = fgetcsv($f)) !== false) {
                         echo "<tr>";
                         foreach ($line as $cell) {
@@ -104,8 +104,8 @@
                 <div class="col l3 offset-l3 s12">
                     <h5 class="white-text">Navigation</h5>
                     <ul>
-                        <li><a class="white-text" href="profil.php">Profil</a></li>
-                        <li><a class="white-text" href="index.html">Se déconnecter</a></li>
+                        <li><a class="white-text" href="/profil">Profil</a></li>
+                        <li><a class="white-text" href="/">Se déconnecter</a></li>
                     </ul>
                 </div>
             </div>
