@@ -33,7 +33,7 @@ def createcsv(data, user):
 	ftp.set_debuglevel(0)
 	ftp.connect(credential['ftp']['server'], 21) 
 	ftp.login(credential['ftp']['user'],credential['ftp']['password'])
-	ftp.cwd('www/data')
+	ftp.cwd('data')
 	fp = open('data/' + str(user[1]) + '.csv', 'rb')
 	ftp.storbinary('STOR %s' % os.path.basename('data/' + str(user[1]) + '.csv'), fp, 1024)
 	fp.close()
