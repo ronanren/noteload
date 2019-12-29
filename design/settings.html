@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Noteload</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dark">
+    <main>
+        <header>
+            <img src="img/profile_picture.jpg" alt="Mathis Boultoureau" />
+            <p>
+                <strong>Paramètres</strong> <br />
+                Mathis Boultoureau
+            </p>
+        </header>
+
+        <div class="two-columns">
+            <section>
+                <h2>Profil</h2>
+                <p>Certaines informations ne sont pas modifiables car elles sont nécessaires pour récupérer vos notes.</p>
+                <div class="input">
+                    <label for="name">Prénom et nom</label>
+                    <input type="text" id="name" name="name" disabled value="Mathis Boultoureau" />
+                </div>
+                <div class="input">
+                    <label for="email">Adresse email</label>
+                    <input type="text" id="email" name="email" disabled value="mathis.boultoureau@etudiant.univ-rennes1.fr" />
+                </div>
+                <div class="button">
+                    <a href="download">Télécharger mes données</a>
+                </div>
+                <div class="button danger">
+                    <a href="delete">Supprimer mon compte</a>
+                </div>
+                <p class="more-info">Dernière vérification des notes : Aujourd'hui, à 14:08</p>
+            </section>
+            <section>
+                <h3>Affichage</h3>
+                <p>Prêt à passer du côté obscur de la force ?</p>
+                <div class="checkbox">
+                    <p>Passer du côté obscur</p>
+                    <input type="checkbox" name="dark-mode" id="dark-mode" />
+                    <label for="dark-mode"></label>
+                </div>
+            </section>
+        </div>
+
+        <section>
+            <h3>Crédits</h3>
+            <p>Réalisé par Mathis Boultoureau & Ronan Renoux</p>
+        </section>
+    </main>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i class="material-icons">home</i>
+                    <p>Accueil</p>
+                </a>
+            </li>
+            <li>
+                <a href="notes.html">
+                    <i class="material-icons">check_box</i>
+                    <p>Notes</p>
+                </a>
+            </li>
+            <li>
+                <a href="agenda.html">
+                    <i class="material-icons">calendar_today</i>
+                    <p>Agenda</p>
+                </a>
+            </li>
+            <li>
+                <a href="cours.html">
+                    <i class="material-icons">menu_book</i>
+                    <p>Cours</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a href="settings.html">
+                    <i class="material-icons">settings_applications</i>
+                    <p>Paramètres</p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</body>
+
+</html>
