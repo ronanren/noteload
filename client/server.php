@@ -56,7 +56,7 @@ if (isset($_POST['reg_user'])) {
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['success'] = "Vous êtes désormais connecté.";
-  	header('location: main');
+  	header('location: notes');
   }
 }
 
@@ -86,7 +86,7 @@ if (isset($_POST['login_user'])) {
     if (mysqli_num_rows($results) == 1) {
       $_SESSION['username'] = $username;
       $_SESSION['success'] = "Vous êtes connecté.";
-      header('location: main');
+      header('location: notes');
     }else {
       array_push($errors, "Nom d'utilisateur ou mot de passe incorrect.");
     }

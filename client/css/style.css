@@ -1,75 +1,359 @@
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
-
-nav ul a,
-nav .brand-logo {
-  color: #444;
+:root {
+  --blue: #4b6df5;
 }
 
-p {
-  line-height: 2rem;
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.sidenav-trigger {
-  color: #26a69a;
+* {
+  box-sizing: border-box; 
 }
 
-.parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
-}
-  .parallax-container .section {
-    width: 100%;
-  }
-
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
+strong {
+  color: #000;
 }
 
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
+a {
+  color: #333;
+  text-decoration: none;
 }
 
-.icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-  font-size: inherit;
-}
-
-footer.page-footer {
-  margin: 0;
+/* MAIN */
+main {
+  color: #333;
+  margin-bottom: 100px;
+  padding: 0 20px;
 }
 
+/* HEADER */
+header {
+  font-size: 2em;
+
+  margin: 50px 10px 30px 10px;
+}
+
+header img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px 0;
+}
+
+header p {
+  margin: 5px 0;
+}
+
+/* SECTION */
+section {
+  border-radius: 1em;
+  margin: 10px;
+}
+
+section h2 {
+  display: none;
+}
+
+section ul {
+  padding: 0;
+  width: 100%;
+}
+
+section ul li {
+  display: flex;
+  justify-content: space-between;
+}
+
+section ul li img {
+  display: block;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+section ul li div {
+  display: flex;
+  width: 90%;
+}
+
+section ul li div p {
+  margin-left: 20px;
+}
+
+section ul li > p {
+  color: #000;
+  font-weight: bold;
+  text-align: right;
+}
+
+section .more-info {
+  text-align: right;
+}
+
+/* TABLE */
 table {
-  border: 1px grey solid;
+  width: 100%;
+  border: 1px solid #CCC;
   border-collapse: collapse;
-  margin-bottom: 50px;
-  font-family: 'Open Sans', sans-serif;
+  overflow-x: auto;
 }
 
-td {
-  padding: 0; 
+td, th {
+  height: 50px;
+  padding: 5px;
+}
+
+th {
+  background-color: #000;
+  color: #FFF;
+  position: sticky;
+  top: -1px;
+  left: 0;
+}
+
+tr:nth-child(even) {
+  background-color: #CCC;
+}
+
+.subject {
+  border-top: 1px solid #000;
+}
+
+.ue th:nth-child(1) {
+  position: sticky;
+  top: 49px;
+  left: 0;
+  display: table-cell;
+}
+
+/* tr td:nth-child(1), tr th:nth-child(1), tr td:nth-child(5), tr th:nth-child(5) {
+  display: none;
+} */
+
+
+
+/* NAV */
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 60px;
+  border-top: 1px solid #CCC;
+  color: #777;
+  background: #FFF;
+}
+
+nav ul {
+  display: flex;
+  padding: 0;
   margin: 0;
 }
 
-@media screen and (max-width: 640px) {
-  table {
-    font-size: 8px;
+nav ul li {
+  flex: 1;
+  list-style: none;
+}
+
+nav ul li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 60px;
+  transition: 0.2s transform, 0.2s color;
+}
+
+nav ul li p {
+  margin: 3px 0;
+}
+
+nav ul li.selected i {
+  color: var(--blue);
+}
+
+nav ul li.selected p {
+  color: #000;
+  font-weight: bold;
+}
+
+nav ul li:hover a {
+  transform: scale(1.1);
+  color: #333;
+}
+
+/* FORMS */
+/* CHECKBOX */
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox input {
+  display: none;
+}
+
+.checkbox label {
+  display: block;
+  width: 45px;
+  height: 24px;
+  background: #CCC;
+  border-radius: 3em;
+  position: relative;
+}
+
+.checkbox label::before {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: block;
+  content: "";
+  height: 20px;
+  width: 20px;
+  background-color: #FFF;
+  border-radius: 50%;
+
+  transition: 0.2s left, 0.2s background;
+}
+
+.checkbox input:checked + label {
+  background: var(--blue);
+}
+
+.checkbox input:checked + label::before {
+  left: 22px;
+}
+
+/* INPUT */
+.input {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.input input {
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #CCC;
+  border-radius: 0.2em;
+}
+
+.input input:disabled {
+  background-color: #DDD;
+  color: #000;
+}
+
+/* BUTTONS */
+.button {
+  background-color: var(--blue);
+  margin: 20px 0;
+  border-radius: 0.2em;
+  text-align: center;
+}
+
+.button a, .button input[type=submit] {
+  padding: 10px;
+  display: block;
+  height: 100%;
+  width: 100%;
+  color: #FFF;
+  border: none;
+  background-color: var(--blue);
+  font-size: 1em;
+}
+
+.danger, .danger a, .danger input[type=submit] {
+  background-color: #e74c3c;
+}
+
+/* DARK MODE */
+.dark, .dark nav {
+  background: #000;
+}
+
+.dark tr {
+  background-color: #111;
+}
+
+.dark tr:nth-child(even) {
+  background-color: #222;
+}
+
+.dark .subject {
+  border-top: 1px solid #FFF;
+}
+
+.dark strong, .dark nav ul li.selected p, .dark nav ul li:hover a, .dark section ul li > p {
+  color: #FFF;
+}
+
+.dark main, .dark nav ul li, .dark a {
+  color: #DDD;
+}
+
+/* MOBILE */
+@media (min-width: 700px)
+{
+  /* MAIN */
+  main {
+      position: absolute;
+      width: calc(100vw - 200px);
+      left: 200px;
+      top: 0;
+      padding: 0 5%;
+  }
+
+  /* NAV */
+  nav {
+      height: 100vh;
+      width: 200px;
+      border-top: 0;
+      border-right: 1px solid #CCC;
+  }
+
+  nav ul {
+      flex-direction: column;
+  }
+
+  nav ul li a {
+      flex-direction: row;
+      justify-content: flex-start;
+      padding: 0 20px;
+      flex-basis: 70px;
+  }
+
+  nav ul li p {
+      margin-left: 10px;
+  }
+
+  /* TABLE */
+  tr td:nth-child(1), tr th:nth-child(1), tr td:nth-child(5), tr th:nth-child(5) {
+      display: table-cell;
+  }
+}
+
+@media (min-width: 1200px) {
+  section {
+      border: 1px solid #CCC;
+      padding: 5px 20px;
+      flex-basis: 50%;
+  }
+
+  section h2 {
+      display: block;
+  }
+
+  section > p:first-child {
+      display: none;
+  }
+
+  /* COLUMNS */
+  .two-columns {
+      display: flex;
   }
 }
