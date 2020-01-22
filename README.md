@@ -1,10 +1,11 @@
 # noteload
 noteload est une application de consultation des notes présentes sur l'environnement numérique de travail de l'Université de Rennes 1.
+Développé par Mathis Boultoureau et Ronan Renoux.
 
 ## Installation
 noteload comprend deux parties :
 - Une partie serveur en Python qui vérifie constamment les notes
-- Une partie client qui affiche sur un navigateur les notes
+- Une partie client qui affiche sur un navigateur les notes située le github de [mboultoureau](https://github.com/mboultoureau/noteload)
 
 
 ### Installation du serveur
