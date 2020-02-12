@@ -37,7 +37,8 @@ def getNotesPage(credentials):
         }
         
         try:
-            response = requests.post(URL, data=login, headers=HEADERS)
+            session = requests.Session()
+            response = session.post(URL, data=login, headers=HEADERS)
         except requests.ConnectionError:
             data["error"] = "There is a problem with the Internet connection"
 
@@ -47,15 +48,31 @@ def getNotesPage(credentials):
 
         if (response.status_code == 200) :
             h = html2text.HTML2Text()
-            note_page = html_page.find("body")
+        
             h.ignore_links = True
             h.body_width = 0
 
-            data["page"] = h.handle(str(note_page))
+            html_page = str(html_page)
+            listsem = html_page[html_page.find('<select name="sem">'):html_page.find('</select>')]
+            sem = listsem.rfind("value=")
+            sem = listsem[sem+7:sem+14]
+            
+            params = {
+                "sem": sem
+            }
+            
+
+            cookies = {
+                "PHPSESSID": session.cookies.get_dict().get("PHPSESSID")
+            }
+            new_request = requests.post("http://notes.iutlan.univ-rennes1.fr/index.php", data=params, headers=HEADERS, cookies=cookies)
+
+
+            data["page"] = h.handle(str(new_request.text))
             data["error"] = None
         elif (response.status_code == 401) :
             data["error"] = "Your Sesame IDs seem wrong"
         else :
             data["error"] = "An unknown error occurred"
-        
+    
     return data
