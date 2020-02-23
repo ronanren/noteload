@@ -54,7 +54,7 @@ def getNotesPage(credentials):
 
             html_page = str(html_page)
             listsem = html_page[html_page.find('<select name="sem">'):html_page.find('</select>')]
-            sem = listsem.rfind("value=")
+            sem = listsem.find("value=")
             sem = listsem[sem+7:sem+14]
             
             params = {
