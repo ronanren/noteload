@@ -1,15 +1,7 @@
 # noteload
 
 <h4 align="center">🎓🛠️ Noteload est un script qui permet d'envoyer des notifications des nouvelles notes présentes sur l'environnement numérique de travail de l'Université de Rennes 1.</h4>
-
-<table>
-<tr>
-<h4>Développé par</h4>
-<td align="center">
-<a href="https://github.com/mboultoureau"><img src="https://github.com/mboultoureau.png" width="100px;" alt=""/><br />Mathis Boultoureau</a></td>
-<td align="center"><a href="https://github.com/ronanren"><img src="https://github.com/ronanren.png" width="100px;" alt=""/><br />Ronan Renoux</a></td>
-</tr>
-</table>
+<h4 align="center">Développé par <a href="https://github.com/mboultoureau">Mathis Boultoureau</a> et <a href="https://github.com/ronanren">Ronan Renoux</a></h4>
 
 <p align="center">
 <a href="https://badge.fury.io/py/beautifulsoup4"><img src="https://badge.fury.io/py/beautifulsoup4.svg" alt="PyPI version" height="18"></a>
