@@ -1,40 +1,60 @@
 # noteload
-noteload est une application de consultation des notes présentes sur l'environnement numérique de travail de l'Université de Rennes 1.
-Développé par Mathis Boultoureau et Ronan Renoux.
 
-## Installation
-noteload comprend deux parties :
+<h4 align="center">🎓🛠️ Noteload est un script qui permet d'envoyer des notifications des nouvelles notes présentes sur l'environnement numérique de travail de l'Université de Rennes 1.</h4>
+
+<table>
+<tr>
+<td>Développé par<td>
+<td align="center">
+<a href="https://github.com/mboultoureau"><img src="https://github.com/mboultoureau.png" width="100px;" alt=""/><br />Mathis Boultoureau</a></td>
+<td align="center"><a href="https://github.com/ronanren"><img src="https://github.com/ronanren.png" width="100px;" alt=""/><br />Ronan Renoux</a></td>
+</tr>
+</table>
+
+<p align="center">
+<a href="https://badge.fury.io/py/beautifulsoup4"><img src="https://badge.fury.io/py/beautifulsoup4.svg" alt="PyPI version" height="18"></a>
+<a href="https://badge.fury.io/py/html2text"><img src="https://badge.fury.io/py/html2text.svg" alt="PyPI version" height="18"></a>
+<a href="https://badge.fury.io/py/requests"><img src="https://badge.fury.io/py/requests.svg" alt="PyPI version" height="18"></a>
+<a href="https://badge.fury.io/py/PyYAML"><img src="https://badge.fury.io/py/PyYAML.svg" alt="PyPI version" height="18"></a>
+</p>
+
+<p align="center">
+  <a href="#Fonctionnalités">Fonctionnalités</a> |
+  <a href="#Utilisation">Utilisation</a> |
+  <a href="#Licence">Licence</a> |
+  <a href="#Contactez-moi">Contactez-moi</a> |
+  <a href="https://ronanren.github.io" target="_blank">Mon site personnel</a> 
+</p>
+
+# Fonctionnalités
+
+Noteload comprend deux parties :
+
 - Une partie serveur en Python qui vérifie constamment les notes
 - Une partie client qui affiche sur un navigateur les notes située le github de [mboultoureau](https://github.com/mboultoureau/noteload)
 
-
-### Installation du serveur
-Pour installer le serveur, vous devez avoir [Python 3.6](https://www.python.org/downloads/) ou une version ultérieure.
-
-Commencez par vous placez dans le dossier du serveur :
+# Utilisation
 
 ```bash
-cd server
+# Cloner ce dépôt
+$ git clone https://github.com/ronanren/noteload
+
+# Accéder au dossier
+$ cd noteload
+
+# Modifier le fichier credentials.yml pour la base de données/serveur mail/ftp
+
+# Installer toutes les dépendances
+$ pip install -r requirements.txt
+
+# Lancer le script
+$ python main.py
 ```
 
-Nous vous conseillons ensuite de créer un environnement virtuel Python :
-```bash
-python3 -m venv ENV
-```
-Ensuite, activez-le avec la commande dédiée à votre système :
-```bash
-ENV/bin/activate.bat # Sous Windows
-source ENV/bin/activate # Sous MacOS et Linux
-```
+# Licence
 
-Installez ensuite les dépendances :
-```bash
-pip install -r requirements.txt
-```
-> Sous certains systèmes tels que **MacOS**, il se peut que vous deviez utiliser `pip3` au lieu de `pip`.
+MIT
 
-Vous pouvez désormais exécutez le script :
-```bash
-python main.py
-````
-> Sous certains systèmes tels que **MacOS**, il se peut que vous deviez utiliser `python3` au lieu de `python`.
+# Contactez-moi
+
+**Twitter** : <a href="https://twitter.com/Ronanren" target="_blank">@Ronanren</a>
