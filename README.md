@@ -22,7 +22,7 @@
 
 Noteload comprend deux parties :
 
-- Une partie serveur en Python qui vérifie constamment les notes
+- Une partie serveur en Python qui vérifie constamment les notes et notifie par mail des nouvelles notes
 - Une partie client qui affiche sur un navigateur les notes située le github de [mboultoureau](https://github.com/mboultoureau/noteload)
 
 # Utilisation
