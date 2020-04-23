@@ -4,7 +4,7 @@
 
 <table>
 <tr>
-<td>Développé par<td>
+<h4>Développé par</h4>
 <td align="center">
 <a href="https://github.com/mboultoureau"><img src="https://github.com/mboultoureau.png" width="100px;" alt=""/><br />Mathis Boultoureau</a></td>
 <td align="center"><a href="https://github.com/ronanren"><img src="https://github.com/ronanren.png" width="100px;" alt=""/><br />Ronan Renoux</a></td>
