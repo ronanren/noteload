@@ -45,7 +45,7 @@ $ python main.py
 
 # Licence
 
-MIT
+<a href="https://github.com/ronanren/noteload/blob/master/LICENSE" target="_blank">MIT</a>
 
 # Contactez-moi
 
