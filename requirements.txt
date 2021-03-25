@@ -4,5 +4,5 @@ html2text==2019.9.26
 mysql==0.0.2
 mysql-connector==2.2.9
 mysqlclient==1.4.6
-PyYAML==5.1.2
+PyYAML==5.4
 requests==2.22.0
